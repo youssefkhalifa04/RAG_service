@@ -3,10 +3,12 @@ from sentence_transformers import SentenceTransformer
 import torch
 import numpy as np
 
+from models.EmbeddingModel import EmbeddingModel
 
 
 
-class Qwen3:
+
+class Qwen3(EmbeddingModel):
     def __init__(self, model_id: str = "Qwen/Qwen3-Embedding-0.6B", embed_model_id: str = "sentence-transformers/all-mpnet-base-v2", device: str = "cpu"):
         self.device = device
         self.model_id = model_id
