@@ -12,11 +12,13 @@ This directory contains unit tests for the Summarizer 1.1 project.
 ## Running Tests
 
 ### Run all tests:
+
 ```bash
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 ### Run a specific test file:
+
 ```bash
 python -m unittest tests.test_helper -v
 python -m unittest tests.test_employee -v
@@ -25,11 +27,13 @@ python -m unittest tests.test_report_generator -v
 ```
 
 ### Run a specific test class:
+
 ```bash
 python -m unittest tests.test_helper.TestHelperFunctions -v
 ```
 
 ### Run a specific test method:
+
 ```bash
 python -m unittest tests.test_helper.TestHelperFunctions.test_percentage_basic -v
 ```
@@ -46,12 +50,14 @@ The test suite uses Python's built-in `unittest` module and the `unittest.mock` 
 ## Test Coverage
 
 ### Helper Tests (test_helper.py)
+
 - ✅ Percentage calculations with various inputs
 - ✅ Comparison logic (above/below/at average)
 - ✅ Embedding parsing from different formats (list, string, Postgres format)
 - ✅ Error handling for invalid embeddings
 
 ### Employee Tests (test_employee.py)
+
 - ✅ Single employee deeds extraction and calculation
 - ✅ Breakdown, pause, and production metrics
 - ✅ Average comparison calculations
@@ -59,6 +65,7 @@ The test suite uses Python's built-in `unittest` module and the `unittest.mock` 
 - ✅ Handling non-existent employees
 
 ### Knowledge Generator Tests (test_knowledge_generator.py)
+
 - ✅ Initialization with storage and embedding model
 - ✅ Handling factories with no logs
 - ✅ Processing factories with actual logs
@@ -66,6 +73,7 @@ The test suite uses Python's built-in `unittest` module and the `unittest.mock` 
 - ✅ Statement generation for employees and machines
 
 ### Report Generator Tests (test_report_generator.py)
+
 - ✅ Initialization and setup
 - ✅ Query validation
 - ✅ Vector handling and similarity calculations
