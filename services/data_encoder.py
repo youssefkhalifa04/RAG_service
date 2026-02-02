@@ -8,8 +8,12 @@ class DataEncoder:
         self.embed_model = embed_model
 
     def encode_data(self, documents, type_label: str, factory_id: str , code: str):
-        doc_vecs = self.embed_model.encode(np.array([documents]), prompt_name="data_encoding")
+        doc_vecs = self.embed_model.encode(np.array([documents]))
        
-        res = self.storage.push_embedding(doc_vecs, factory_id, type_label, documents, code)
+        try : 
+            res = self.storage.push_embedding(doc_vecs, factory_id, type_label, documents, code)
+        except Exception as e:
+            print(f"Error encoding data: {e}")
+            raise ValueError("Error encoding data")
 
         return res

@@ -40,12 +40,13 @@ class KnowledgeGenerator:
                         self.encoder.encode_data(statement , "employee" , factory_id , emp_code)
                     except Exception as e:
                         print(f"Error generating vector for employee {emp_code} in factory {factory_id}: {e}")
-                        return False
+                        raise ValueError("Error generating vector for employee")
+                  
                     try:
                         self.encoder.encode_data(mach_stmt , "machine" , factory_id , machine_code)
                     except Exception as e:
                         print(f"Error generating vector for machine {machine_code} in factory {factory_id}: {e}")
-                        return False
+                        raise ValueError("Error generating vector for machine")
                     
         return True
     

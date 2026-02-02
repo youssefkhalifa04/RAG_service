@@ -24,7 +24,7 @@ def report():
     try:
         print("Generating report...")
         
-        text = report_generator.generate_report(type="employee", factory_id="97e90fd2-469a-471b-a824-1e6ac0d5ec93" , query="which employee has the most breakdowns?", top_k=5)
+        text = report_generator.generate_report(type="employee", factory_id="97e90fd2-469a-471b-a824-1e6ac0d5ec93" , query="generate a full report about the employee performance and issues", top_k=5)
         print("Report generated:", text)
         return jsonify({"message": "Report generated successfully.", "report": text}), 200
     except Exception as e:
