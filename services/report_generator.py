@@ -29,7 +29,7 @@ class ReportGenerator:
             raise ValueError("Query must be provided for report generation.")
         
         # Enrich query with domain keywords for better similarity
-        enriched_query = f"{query} performance breakdown downtime waste production efficiency metrics"
+        enriched_query = f"{query}, Focus on the performance metrics, breakdowns, downtime, good and defective units, and pauses."
         
         try:
             query_vec = self.embed_model.encode([enriched_query], prompt_name="query")
@@ -132,7 +132,7 @@ class ReportGenerator:
         # Now ask LLM to summarize/compare them
         summary_prompt = [
             {"role": "system", "content": "You are a factory performance analyst. Provide concise insights comparing multiple performance reports."},
-            {"role": "user", "content": f"Analyze these {type} performance reports and provide:\n1. Key trends\n2. Best performer\n3. Areas needing attention\n\nReports:\n{report}"}
+            {"role": "user", "content": f"Analyze these {type} performance reports and provide: 1)Improvement area , 2)Whos performing best, 3)Who needs support\n{report}"}
         ]
         
         output = self.embed_model.getResponse(summary_prompt)

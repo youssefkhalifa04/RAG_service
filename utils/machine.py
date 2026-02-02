@@ -69,3 +69,14 @@ def generate_machine_statement(machine_code: str, deeds: dict, overall: dict, av
     )
     print("Machine statement generated:", stmt)
     return stmt
+
+
+def generate_machine_statement_new_format( machine_code: str, deeds: dict):
+    stmt = (
+        f"Performance Report on Machine {machine_code}:\n"
+        f"- Breakdowns: {deeds['breakdowns']} incidents causing {deeds['breakdowns_duration']} minutes of downtime.\n"
+        f"- Production: {deeds['good_pieces']} good units and {deeds['bad_pieces']} defective units produced.\n"
+        f"- Pauses: {deeds['pauses_count']} incidents totaling {deeds['pauses']} minutes.\n"
+    )
+    print("New format statement generated:", stmt)
+    return stmt

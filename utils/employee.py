@@ -79,3 +79,25 @@ def generate_employee_statement(employee_code: str, machine_code: str, deeds: di
     )
     print("Employee statement generated:", stmt)
     return stmt
+
+
+def generate_statement_new_format(full_name: str, employee_code: str, machine_code: str, deeds: dict):
+    total_units = deeds['good_pieces'] + deeds['bad_pieces']
+    good_percentage = percentage(deeds['good_pieces'], total_units)
+    bad_percentage = percentage(deeds['bad_pieces'], total_units)
+    breakdowns = deeds['breakdowns']
+    breakdowns_duration = deeds['breakdowns_duration']
+    pauses_count = deeds['pauses_count']
+    pauses_duration = deeds['pauses']
+    new_format = (
+        f"Employee {full_name} ({employee_code}) Performance Report: \n"
+        f"Machine: {machine_code}\n"
+        f"Treated units ({total_units}): Good - {deeds['good_pieces']} ({good_percentage:.2f}%), Defective - {deeds['bad_pieces']} ({bad_percentage:.2f}%)\n"
+        f"Pauses ({pauses_count} incidents, {pauses_duration} minutes)\n"
+        f"Breakdowns ({breakdowns} incidents, {breakdowns_duration} minutes)"
+    )
+    print("New format statement generated:", new_format)
+    return new_format
+
+
+
